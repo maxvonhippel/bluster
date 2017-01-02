@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+// edit the existing locations
+- (void)editLocations;
 
 @end
 

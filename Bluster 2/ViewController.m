@@ -17,12 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // 1. What is the current location?
+    // 2. Show the weather for the current location.
+    // 3. Are any locations saved in settings?
+    // 4. If so, load those locations in views you can swipe to see.
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)editLocations {
+    // 1. Bring up a list of the saved locations
+    // 2. Allow user to add or remove from the list, or rearrange
+}
+
+- (void)getWeatherAtLon:(double)longitude andLat:(double)latitude {
+    // 1. Request the weather conditions at the given location
+    // 2. If nothing is returned report a connection issue
+    // 3. If an error or bad data is returned:
+    // 4. Report it to me the developer, if the user has allowed me to get crash reports etc
+    // 5. Report an error to the user and say I'm workibng on it
+    // 6. TODO: write a "weather" NSObject, and return it 
 }
 
 

@@ -10,4 +10,9 @@
 
 @interface Location : NSObject
 
+// the temperature in Kelvin
+// the city name
+// the country name
+// the longitude and latitude
+
 @end

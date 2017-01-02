@@ -10,4 +10,11 @@
 
 @implementation Weather
 
+// when last updated?
+// temperature in Kelvin
+// Location (use location object)
+// wind
+// forecast
+// etc
+
 @end

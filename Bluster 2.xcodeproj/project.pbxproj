@@ -15,6 +15,8 @@
 		DA86E0D51E1ABF66003DDF9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA86E0D31E1ABF66003DDF9A /* LaunchScreen.storyboard */; };
 		DA86E0E01E1ABF66003DDF9A /* Bluster_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0DF1E1ABF66003DDF9A /* Bluster_2Tests.m */; };
 		DA86E0EB1E1ABF66003DDF9A /* Bluster_2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0EA1E1ABF66003DDF9A /* Bluster_2UITests.m */; };
+		DA86E0FA1E1ABF92003DDF9A /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0F91E1ABF92003DDF9A /* Location.m */; };
+		DA86E0FD1E1AC125003DDF9A /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0FC1E1AC125003DDF9A /* Weather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		DA86E0E61E1ABF66003DDF9A /* Bluster 2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bluster 2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA86E0EA1E1ABF66003DDF9A /* Bluster_2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bluster_2UITests.m; sourceTree = "<group>"; };
 		DA86E0EC1E1ABF66003DDF9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA86E0F81E1ABF92003DDF9A /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = ../Location.h; sourceTree = "<group>"; };
+		DA86E0F91E1ABF92003DDF9A /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = ../Location.m; sourceTree = "<group>"; };
+		DA86E0FB1E1AC125003DDF9A /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		DA86E0FC1E1AC125003DDF9A /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,10 @@
 		DA86E0C41E1ABF66003DDF9A /* Bluster 2 */ = {
 			isa = PBXGroup;
 			children = (
+				DA86E0F81E1ABF92003DDF9A /* Location.h */,
+				DA86E0F91E1ABF92003DDF9A /* Location.m */,
+				DA86E0FB1E1AC125003DDF9A /* Weather.h */,
+				DA86E0FC1E1AC125003DDF9A /* Weather.m */,
 				DA86E0C81E1ABF66003DDF9A /* AppDelegate.h */,
 				DA86E0C91E1ABF66003DDF9A /* AppDelegate.m */,
 				DA86E0CB1E1ABF66003DDF9A /* ViewController.h */,
@@ -275,7 +285,9 @@
 			files = (
 				DA86E0CD1E1ABF66003DDF9A /* ViewController.m in Sources */,
 				DA86E0CA1E1ABF66003DDF9A /* AppDelegate.m in Sources */,
+				DA86E0FA1E1ABF92003DDF9A /* Location.m in Sources */,
 				DA86E0C71E1ABF66003DDF9A /* main.m in Sources */,
+				DA86E0FD1E1AC125003DDF9A /* Weather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
