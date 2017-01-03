@@ -29,7 +29,11 @@
     // 2. Get the API KEY from the API_KEY file.  We use the Dark Sky API.
     // If you are using my code off of GitHub, you need to get your own key and put it in an API_KEY
     // file, and add it to the bundle.
-    
+    NSString *apiPath = [[NSBundle mainBundle] pathForResource:@"API_KEY" ofType:@""];
+    NSError *error;
+    API_KEY = [NSString stringWithContentsOfFile:apiPath encoding:NSUTF8StringEncoding error:&error];
+    if (error)
+        [self handleMajorError:error];
     // 2. Show the weather for the current location.
     // 3. Are any locations saved in settings?
     // 4. If so, load those locations in views you can swipe to see.
@@ -39,6 +43,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)handleMajorError:(NSError*)error {
+    // if error, handle it, tell me, and tell the user (TODO)
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{

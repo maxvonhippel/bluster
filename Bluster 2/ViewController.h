@@ -12,9 +12,11 @@
 @interface ViewController : UIViewController <CLLocationManagerDelegate> {
 
     // location manager to store current location
-    CLLocationManager *locationManager;
+    CLLocationManager* locationManager;
     // the current location
     CLLocation* curLocation;
+    // the Dark Sky API key
+    NSString* API_KEY;
     
 }
 
