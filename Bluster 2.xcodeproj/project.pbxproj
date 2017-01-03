@@ -18,6 +18,7 @@
 		DA86E0FD1E1AC125003DDF9A /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0FC1E1AC125003DDF9A /* Weather.m */; };
 		DAB097271E1B25CE009ADA71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB097261E1B25CE009ADA71 /* CoreLocation.framework */; };
 		DAB097291E1B274D009ADA71 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = DAB097281E1B274D009ADA71 /* icons */; };
+		DAB0972B1E1B2A7D009ADA71 /* API_KEY in Resources */ = {isa = PBXBuildFile; fileRef = DAB0972A1E1B2A7D009ADA71 /* API_KEY */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		DA86E0FC1E1AC125003DDF9A /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		DAB097261E1B25CE009ADA71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DAB097281E1B274D009ADA71 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
+		DAB0972A1E1B2A7D009ADA71 /* API_KEY */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = API_KEY; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		DA86E0C41E1ABF66003DDF9A /* Bluster 2 */ = {
 			isa = PBXGroup;
 			children = (
+				DAB0972A1E1B2A7D009ADA71 /* API_KEY */,
 				DAB097281E1B274D009ADA71 /* icons */,
 				DA86E0FB1E1AC125003DDF9A /* Weather.h */,
 				DA86E0FC1E1AC125003DDF9A /* Weather.m */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB0972B1E1B2A7D009ADA71 /* API_KEY in Resources */,
 				DA86E0D51E1ABF66003DDF9A /* LaunchScreen.storyboard in Resources */,
 				DAB097291E1B274D009ADA71 /* icons in Resources */,
 				DA86E0D21E1ABF66003DDF9A /* Assets.xcassets in Resources */,

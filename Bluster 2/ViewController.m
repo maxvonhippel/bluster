@@ -26,6 +26,10 @@
     [locationManager requestWhenInUseAuthorization];
     locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
     [locationManager startUpdatingLocation];  //requesting location updates
+    // 2. Get the API KEY from the API_KEY file.  We use the Dark Sky API.
+    // If you are using my code off of GitHub, you need to get your own key and put it in an API_KEY
+    // file, and add it to the bundle.
+    
     // 2. Show the weather for the current location.
     // 3. Are any locations saved in settings?
     // 4. If so, load those locations in views you can swipe to see.
