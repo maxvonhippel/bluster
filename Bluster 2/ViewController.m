@@ -5,6 +5,8 @@
 //  Created by Max von Hippel on 1/2/17.
 //  Copyright © 2017 Max von Hippel. All rights reserved.
 //
+//  Sources Used:
+//  1. http://www.ios-blog.co.uk/tutorials/objective-c/getting-the-users-location-using-corelocation/
 
 #import "ViewController.h"
 
@@ -19,6 +21,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // 1. What is the current location?
+    locationManager = [[CLLocationManager alloc] init]; // initializing locationManager
+    locationManager.delegate = self; // we set the delegate of locationManager to self.
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
+    [locationManager startUpdatingLocation];  //requesting location updates
     // 2. Show the weather for the current location.
     // 3. Are any locations saved in settings?
     // 4. If so, load those locations in views you can swipe to see.
@@ -28,6 +34,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    // handle not being able to get location
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    // update curLocation
+    curLocation = [locations lastObject];
+    // prove that it worked
+    NSLog(@"lon: %f, lat: %f", curLocation.coordinate.longitude, curLocation.coordinate.latitude);
 }
 
 - (void)editLocations {

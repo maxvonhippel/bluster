@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+
+    // location manager to store current location
+    CLLocationManager *locationManager;
+    // the current location
+    CLLocation* curLocation;
+    
+}
 
 // edit the existing locations
 - (void)editLocations;

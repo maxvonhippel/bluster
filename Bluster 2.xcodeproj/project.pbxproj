@@ -15,8 +15,9 @@
 		DA86E0D51E1ABF66003DDF9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA86E0D31E1ABF66003DDF9A /* LaunchScreen.storyboard */; };
 		DA86E0E01E1ABF66003DDF9A /* Bluster_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0DF1E1ABF66003DDF9A /* Bluster_2Tests.m */; };
 		DA86E0EB1E1ABF66003DDF9A /* Bluster_2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0EA1E1ABF66003DDF9A /* Bluster_2UITests.m */; };
-		DA86E0FA1E1ABF92003DDF9A /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0F91E1ABF92003DDF9A /* Location.m */; };
 		DA86E0FD1E1AC125003DDF9A /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DA86E0FC1E1AC125003DDF9A /* Weather.m */; };
+		DAB097271E1B25CE009ADA71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB097261E1B25CE009ADA71 /* CoreLocation.framework */; };
+		DAB097291E1B274D009ADA71 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = DAB097281E1B274D009ADA71 /* icons */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +54,10 @@
 		DA86E0E61E1ABF66003DDF9A /* Bluster 2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bluster 2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA86E0EA1E1ABF66003DDF9A /* Bluster_2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bluster_2UITests.m; sourceTree = "<group>"; };
 		DA86E0EC1E1ABF66003DDF9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA86E0F81E1ABF92003DDF9A /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = ../Location.h; sourceTree = "<group>"; };
-		DA86E0F91E1ABF92003DDF9A /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = ../Location.m; sourceTree = "<group>"; };
 		DA86E0FB1E1AC125003DDF9A /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		DA86E0FC1E1AC125003DDF9A /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		DAB097261E1B25CE009ADA71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DAB097281E1B274D009ADA71 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB097271E1B25CE009ADA71 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,7 @@
 				DA86E0DE1E1ABF66003DDF9A /* Bluster 2Tests */,
 				DA86E0E91E1ABF66003DDF9A /* Bluster 2UITests */,
 				DA86E0C31E1ABF66003DDF9A /* Products */,
+				DAB097251E1B25CE009ADA71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,8 +110,7 @@
 		DA86E0C41E1ABF66003DDF9A /* Bluster 2 */ = {
 			isa = PBXGroup;
 			children = (
-				DA86E0F81E1ABF92003DDF9A /* Location.h */,
-				DA86E0F91E1ABF92003DDF9A /* Location.m */,
+				DAB097281E1B274D009ADA71 /* icons */,
 				DA86E0FB1E1AC125003DDF9A /* Weather.h */,
 				DA86E0FC1E1AC125003DDF9A /* Weather.m */,
 				DA86E0C81E1ABF66003DDF9A /* AppDelegate.h */,
@@ -148,6 +150,14 @@
 				DA86E0EC1E1ABF66003DDF9A /* Info.plist */,
 			);
 			path = "Bluster 2UITests";
+			sourceTree = "<group>";
+		};
+		DAB097251E1B25CE009ADA71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAB097261E1B25CE009ADA71 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +227,7 @@
 				TargetAttributes = {
 					DA86E0C11E1ABF66003DDF9A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 488NN6UZ2M;
 						ProvisioningStyle = Automatic;
 					};
 					DA86E0DA1E1ABF66003DDF9A = {
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA86E0D51E1ABF66003DDF9A /* LaunchScreen.storyboard in Resources */,
+				DAB097291E1B274D009ADA71 /* icons in Resources */,
 				DA86E0D21E1ABF66003DDF9A /* Assets.xcassets in Resources */,
 				DA86E0D01E1ABF66003DDF9A /* Main.storyboard in Resources */,
 			);
@@ -285,7 +297,6 @@
 			files = (
 				DA86E0CD1E1ABF66003DDF9A /* ViewController.m in Sources */,
 				DA86E0CA1E1ABF66003DDF9A /* AppDelegate.m in Sources */,
-				DA86E0FA1E1ABF92003DDF9A /* Location.m in Sources */,
 				DA86E0C71E1ABF66003DDF9A /* main.m in Sources */,
 				DA86E0FD1E1AC125003DDF9A /* Weather.m in Sources */,
 			);
@@ -436,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 488NN6UZ2M;
 				INFOPLIST_FILE = "Bluster 2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linkedandloaded.Bluster-2";
@@ -447,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 488NN6UZ2M;
 				INFOPLIST_FILE = "Bluster 2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linkedandloaded.Bluster-2";
@@ -519,6 +532,7 @@
 				DA86E0F11E1ABF66003DDF9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA86E0F21E1ABF66003DDF9A /* Build configuration list for PBXNativeTarget "Bluster 2Tests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +541,7 @@
 				DA86E0F41E1ABF66003DDF9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA86E0F51E1ABF66003DDF9A /* Build configuration list for PBXNativeTarget "Bluster 2UITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +550,7 @@
 				DA86E0F71E1ABF66003DDF9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
