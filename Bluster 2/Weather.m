@@ -17,4 +17,16 @@
 // forecast
 // etc
 
+- (void)setCurrently:(NSDictionary*)_currently {
+    self.currently = _currently;
+}
+
+- (void)setHourly:(NSDictionary*)_hourly {
+    self.hourly = _hourly;
+}
+
+- (void)setAlerts:(NSDictionary*)_alerts {
+    self.alerts = _alerts;
+}
+
 @end

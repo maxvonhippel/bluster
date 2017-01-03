@@ -8,6 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Weather : NSObject
+@interface Weather : NSObject {
+    
+    // the current weather
+    NSDictionary* currently;
+    // the hourly forecast
+    NSDictionary* hourly;
+    // any urgent alerts
+    NSDictionary* alerts;
+    
+}
+
+// setter for currently dict
+- (void)setCurrently:(NSDictionary*)_currently;
+// setter for hourly dict
+- (void)setHourly:(NSDictionary*)_hourly;
+// setter for alerts dict
+- (void)setAlerts:(NSDictionary*)_alerts;
 
 @end
