@@ -22,7 +22,8 @@
     
     // 1. What is the current location?
     locationManager = [[CLLocationManager alloc] init]; // initializing locationManager
-    locationManager.delegate = self; // we set the delegate of locationManager to self.
+    locationManager.delegate = self;
+    [locationManager requestWhenInUseAuthorization];
     locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
     [locationManager startUpdatingLocation];  //requesting location updates
     // 2. Show the weather for the current location.
@@ -43,8 +44,6 @@
 {
     // update curLocation
     curLocation = [locations lastObject];
-    // prove that it worked
-    NSLog(@"lon: %f, lat: %f", curLocation.coordinate.longitude, curLocation.coordinate.latitude);
 }
 
 - (void)editLocations {
