@@ -17,11 +17,32 @@
     CLLocation* curLocation;
     // the Dark Sky API key
     NSString* API_KEY;
+    // have we gotten a location yet?
+    BOOL recievedLocation;
+    // locations to load
+    NSMutableArray* locations;
     
 }
 
-// edit the existing locations
-- (void)editLocations;
+// --------------- location management --------------
+
+// remove a location from the list
+- (IBAction)removeLocation:(id)sender;
+// the button which allows you to remove a location from the list
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *removeLocationButton;
+// refresh the current location
+- (IBAction)refreshLocation:(id)sender;
+// the button which allows you to refresh the current location
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshLocationButton;
+
+// ---------------- location search ------------------
+
+// opens a viewcontroller to allow the user to search for a location to add
+- (IBAction)searchLocation:(id)sender;
+// the button which allows you to search for an add a location
+@property (weak, nonatomic) IBOutlet UIButton *searchLocationButton;
+
+
 
 @end
 

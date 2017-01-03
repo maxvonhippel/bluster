@@ -15,12 +15,14 @@
 @end
 
 @implementation ViewController
+@synthesize removeLocationButton, refreshLocationButton, searchLocationButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     // 1. What is the current location?
+    recievedLocation = false;
     locationManager = [[CLLocationManager alloc] init]; // initializing locationManager
     locationManager.delegate = self;
     [locationManager requestWhenInUseAuthorization];
@@ -32,13 +34,20 @@
     NSString *apiPath = [[NSBundle mainBundle] pathForResource:@"API_KEY" ofType:@""];
     NSError *error;
     API_KEY = [NSString stringWithContentsOfFile:apiPath encoding:NSUTF8StringEncoding error:&error];
-    if (error)
+    if (error) {
         [self handleMajorError:error];
+        return;
+    }
     // 2. Show the weather for the current location.
+    if (recievedLocation)
+        [self getWeatherAtLocation:curLocation];
     // 3. Are any locations saved in settings?
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"locations"];
+    if (data != NULL)
+        locations = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    else locations = [[NSMutableArray alloc] init];
     // 4. If so, load those locations in views you can swipe to see.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -49,21 +58,21 @@
     // if error, handle it, tell me, and tell the user (TODO)
 }
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     // handle not being able to get location
 }
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)userLocations {
     // update curLocation
-    curLocation = [locations lastObject];
+    curLocation = [userLocations lastObject];
+    recievedLocation = true;
 }
 
-- (void)editLocations {
-    // 1. Bring up a list of the saved locations
-    // 2. Allow user to add or remove from the list, or rearrange
+- (IBAction)removeLocation:(id)sender {
+    
 }
 
-- (void)getWeatherAtLon:(double)longitude andLat:(double)latitude {
+- (void)getWeatherAtLocation:(CLLocation*)location {
     // 1. Request the weather conditions at the given location
     // 2. If nothing is returned report a connection issue
     // 3. If an error or bad data is returned:
@@ -73,4 +82,11 @@
 }
 
 
+- (IBAction)refreshLocation:(id)sender {
+    
+}
+
+- (IBAction)searchLocation:(id)sender {
+    
+}
 @end
