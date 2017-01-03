@@ -42,6 +42,8 @@
 // the button which allows you to search for an add a location
 @property (weak, nonatomic) IBOutlet UIButton *searchLocationButton;
 
+// ---------------- switching locations ------------------
+@property (weak, nonatomic) IBOutlet UIPageControl *locationPageControl;
 
 
 @end

@@ -12,6 +12,9 @@
 //  4. http://stackoverflow.com/questions/14291910/which-event-when-i-close-app-in-ios
 //  5. http://stackoverflow.com/a/35980811/1586231
 //  6. http://stackoverflow.com/a/11337996/1586231
+//  7. http://stackoverflow.com/a/19462763/1586231
+//  8. http://stackoverflow.com/a/1559642/1586231
+//  9. https://github.com/luizClaudioMendes/TrabalhoIOSIesb/blob/e9bfba2f9a04ffa551e4fec534ecea56f561e4e3/Forecast.m
 
 #import "ViewController.h"
 #import "Weather.h"
@@ -21,7 +24,7 @@
 @end
 
 @implementation ViewController
-@synthesize removeLocationButton, refreshLocationButton, searchLocationButton;
+@synthesize removeLocationButton, refreshLocationButton, searchLocationButton, locationPageControl;
 
 - (void)viewDidLoad {
     
@@ -55,7 +58,11 @@
     else locations = [[NSMutableArray alloc] init];
     // 4. If so, load those locations in views you can swipe to see.
     [self loadViewsForLocations];
-    
+    // set the number of pages to the number of open locations
+    locationPageControl.numberOfPages = [locations count];
+    if (locationPageControl.numberOfPages >= 1)
+        locationPageControl.currentPage = 0;
+    // TODO: on swipe, update current page and update the locationPageControl
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,17 +71,20 @@
 }
 
 - (void)handleMajorError:(NSError*)error {
-    // if error, handle it, tell me, and tell the user (TODO)
+    // log the error
+    NSLog(@"%@",[error localizedDescription]);
+    // TODO: if possible, log the error in a way where when users opt-in I can get useful info remotely for debugging
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     // handle not being able to get location
+    [self handleMajorError:error];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)userLocations {
     // update curLocation
     curLocation = [userLocations lastObject];
-    if (!recievedLocation) {
+    if (!recievedLocation && curLocation != nil) {
         [locations addObject:curLocation];
         recievedLocation = true;
         [self loadViewsForLocations];
@@ -82,7 +92,11 @@
 }
 
 - (IBAction)removeLocation:(id)sender {
-    
+    // TODO: remove the location
+    // -------------------------
+    [locations removeObjectAtIndex:[locationPageControl currentPage]];
+    // next, update the page control thing
+    locationPageControl.numberOfPages = [locations count];
 }
 
 - (void)loadViewsForLocations {
@@ -97,37 +111,23 @@
 
 - (Weather*)getWeatherAtLocation:(CLLocation*)location {
     
-    __block Weather* to_return = NULL;
+    Weather* to_return = NULL;
     // 1. Request the weather conditions at the given location
-    NSString* apiUrlString = [NSString stringWithFormat:@"https://api.darksky.net/forecast/%@/%f/%f?exclude=minutely,daily,flags", API_KEY, location.coordinate.latitude, location.coordinate.longitude];
-    // make the request
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:apiUrlString]
-            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                
-                // 2. If nothing is returned report a connection issue
-                if (error == nil) {
-                    [self handleMajorError:error];
-                } else {
-                    NSMutableDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-                    NSDictionary* currently = [jsonData objectForKey:@"currently"];
-                    NSDictionary* hourly = [jsonData objectForKey:@"hourly"];
-                    NSDictionary* alerts = [jsonData objectForKey:@"alerts"];
-                    NSLog(@"currently: %@", currently);
-                    NSLog(@"hourly: %@", hourly);
-                    NSLog(@"alerts: %@", alerts);
-                    // if all of these dicts exist and look valid, stick them in to_return
-                    if (currently && hourly && alerts) {
-                        to_return = [[Weather alloc] init];
-                        [to_return setCurrently:currently];
-                        [to_return setHourly:hourly];
-                        [to_return setAlerts:alerts];
-                    }
-                }
-    }] resume];
-    // return the final product
+    NSString* url = [NSString stringWithFormat:@"https://api.darksky.net/forecast/%@/%f,%f", API_KEY, location.coordinate.latitude, location.coordinate.longitude];
+    NSString* modUrl = [[url componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+    // debug
+    NSLog(@"url: %@", modUrl);
+    NSData* jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:modUrl]];
+    NSDictionary* dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    // debug
+    NSLog(@"dictionary of returned weather data: %@", dataDictionary);
+    if (dataDictionary) {
+        to_return = [[Weather alloc] init];
+        [to_return setCurrently:[dataDictionary objectForKey:@"currently"]];
+        [to_return setHourly:[dataDictionary objectForKey:@"hourly"]];
+        [to_return setAlerts:[dataDictionary objectForKey:@"alerts"]];
+    }
     return to_return;
-    
 }
 
 
