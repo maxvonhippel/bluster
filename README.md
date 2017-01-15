@@ -1,6 +1,6 @@
 ![](banner_bluster.jpg)
 
-Bluster was a surprisingly popular weather app I made in high school built upon the Solº open-source wunderground project.  The app was featured on the Turkey App Store under *20 Under 20* (I was indeed under 20 at the time) and has gernered a few thousand downloads.
+Bluster was a surprisingly popular weather app I made in high school built upon the Solº open-source wunderground project.  The app was featured on the Turkey App Store under *20 Under 20* (I was indeed under 20 at the time) and has garnered a few thousand downloads.
 
 I am now re-building bluster from scratch.  This repository represents my efforts to that effect.
 
